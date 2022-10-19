@@ -5,6 +5,7 @@ const bodyparser = require("body-parser");
 const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoute.js");
 const chatRoutes = require("./routes/chatRoutes.js");
+const messageRoutes = require("./routes/messageRoutes.js");
 const { notFound, errorHandler } = require("./middlewares/errorMiddleware");
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(express.json());
 
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
+app.use("/api/message", messageRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
